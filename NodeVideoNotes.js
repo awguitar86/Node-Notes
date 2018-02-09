@@ -179,3 +179,10 @@
 // Express creates a params object on the req object with corresponding values for each URL paramter
 
 
+
+/* RES.SEND, .JSON, .END, .REDIRECT */
+// res.send(): Sends the response with the data passed in as the request body. Converts objects to JSON
+// res.json(): Just like res.send, but converts non-objects to JSON as well
+// res.end(): Closes the response
+// res.redirect(): Redirects the URL of the client to the url passed in. Could be a local URL or another web site.
+
