@@ -168,7 +168,7 @@
         res.send(users);
     })
 
-    app.get('/api/users/:userId', function( req, res, next ) { //this gets back a specific user becaus eof the :userId in the url
+    app.get('/api/users/:userId', function( req, res, next ) { //this gets back a specific user because of the :userId in the url
         for (var i = 0; i < users.length; i++) {
             if( users[i].id === req.params.userId ) {
                 return res.status(200).send(users[i]);
