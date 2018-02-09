@@ -52,3 +52,8 @@
 // And a while bunch more
 
 
+/* NODEMON */
+// nodemon: a development tool that runs in the terminal to watch fopr changes in the code and run the script again
+// npm install -g nodemon
+// Once done installing, just type 'nodemon' in the command line
+
