@@ -149,4 +149,33 @@
     })
 
 
+/* URL PARAMETERS */
+// http://facetweet.com
+    var users = [{
+        id: 254,
+        name: 'Holly'
+    },
+    {
+        id: 201,
+        name: 'Bud'
+    },
+    {
+        id: 382,
+        name: 'Joann'
+    }]
+
+    app.get('/api/users', function( req, res, next ) {  //this gets back all the users because it wasn't specified of which user to get
+        res.send(users);
+    })
+
+    app.get('/api/users/:userId', function( req, res, next ) { //this gets back a specific user becaus eof the :userId in the url
+        for (var i = 0; i < users.length; i++) {
+            if( users[i].id === req.params.userId ) {
+                return res.status(200).send(users[i]);
+            }
+        }
+    })
+// Indicate url parameters with a colon. The client can send any value in this place.
+// Express creates a params object on the req object with corresponding values for each URL paramter
+
 
