@@ -1,5 +1,10 @@
 /* NODE */
 
+/* NPM */
+// Installs code packages shared by others
+// A tool used from the command line
+// Automatically installs dependencies of packages we install
+
 /* npm install [package]*/
 // install the node package pf the name into the current folder
 
@@ -30,5 +35,20 @@
 /* npm install -g yarn */
 // install yarn globally, to be used everywhere.
 
+
+/* Basic Node */
+// Node: an application that runs on our computer, and uses the same runtime as Chrome to run JavaScript
+// Node is less than a server
+// A JavaScript engine that we can run outside of a browser
+
+/* We Will Use Node For */
+// Development tools on the computer
+// Making our own web servers
+
+ /* Node Can Also Be Used For */
+// Home Automation (Tessel.io)
+// File editing and manipulation
+// Background processes (listeners, recurring tasks)
+// And a while bunch more
 
 
