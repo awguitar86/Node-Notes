@@ -102,3 +102,17 @@ sheila; //{ name: "Sheila", age: 26 }
 
 
 
+/* STATIC FILES */
+//
+var app = express();
+
+app.use( express.static('public') ); //DO NOT express.static() YOUR PROJECT FOLDER!! 
+
+app.use(express.static(
+    path.join(_dirname, 'public')
+));
+
+/* How does our app know whether to get a file from public or the server? */
+// That is what we specified in the express.static path.
+// If you want to do an endpoint that's sending information, you seperate with a /api infront of that endpoint like: app.get('/api/about')
+
