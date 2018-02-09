@@ -57,3 +57,48 @@
 // npm install -g nodemon
 // Once done installing, just type 'nodemon' in the command line
 
+
+/* MODULES and NODE */
+// To Import: var name = require('fileName');
+// To Export: module.exports = [function, object, or variable]; 
+        //OR: module.exports.basic = function(name) { return 'Well, hi ' + name + '!'; }
+// ES6 import/export does not work in Node.
+
+// require: allows us to import code from other files
+// module.exports: Node allows us to easily export a single piece of code (an object, function, etc.)
+
+/* EXAMPLES */
+//greetings.js
+var greetings = {
+    formal: "It's a pleasure to meet you",
+    timeOfDay: function(time) {
+        return 'Good' + time;
+    }
+ };
+
+modeule.exports = greetings;
+
+//script.js
+var greetings = require('./greetings');
+
+greetings; //{ formal: "It's a pleasure to meet you", timeOfDay: [function] }
+
+
+
+//makeUser.js
+var USer = function(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+module.exports = User;
+
+//script.js
+var USer = require('./makeUser');
+
+var sheila = new USer('Sheila', 26);
+
+sheila; //{ name: "Sheila", age: 26 }
+
+
+
