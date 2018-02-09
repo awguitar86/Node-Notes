@@ -69,50 +69,84 @@
 
 /* EXAMPLES */
 //greetings.js
-var greetings = {
-    formal: "It's a pleasure to meet you",
-    timeOfDay: function(time) {
-        return 'Good' + time;
-    }
- };
+    var greetings = {
+        formal: "It's a pleasure to meet you",
+        timeOfDay: function(time) {
+            return 'Good' + time;
+        }
+    };
 
-modeule.exports = greetings;
+    modeule.exports = greetings;
 
 //script.js
-var greetings = require('./greetings');
+    var greetings = require('./greetings');
 
-greetings; //{ formal: "It's a pleasure to meet you", timeOfDay: [function] }
+    greetings; //{ formal: "It's a pleasure to meet you", timeOfDay: [function] }
 
 
 
 //makeUser.js
-var USer = function(name, age) {
-    this.name = name;
-    this.age = age;
-}
+    var USer = function(name, age) {
+        this.name = name;
+        this.age = age;
+    }
 
-module.exports = User;
+    module.exports = User;
 
 //script.js
-var USer = require('./makeUser');
+    var USer = require('./makeUser');
 
-var sheila = new USer('Sheila', 26);
+    var sheila = new USer('Sheila', 26);
 
-sheila; //{ name: "Sheila", age: 26 }
+    sheila; //{ name: "Sheila", age: 26 }
 
 
 
 /* STATIC FILES */
-//
-var app = express();
+    var app = express();
 
-app.use( express.static('public') ); //DO NOT express.static() YOUR PROJECT FOLDER!! 
+    app.use( express.static('public') ); //DO NOT express.static() YOUR PROJECT FOLDER!! 
 
-app.use(express.static(
-    path.join(_dirname, 'public')
-));
+    app.use(express.static(
+        path.join(_dirname, 'public')
+    ));
 
 /* How does our app know whether to get a file from public or the server? */
 // That is what we specified in the express.static path.
 // If you want to do an endpoint that's sending information, you seperate with a /api infront of that endpoint like: app.get('/api/about')
+
+
+/* SIMPLE SERVER */
+// 1. Install express:                                                  npm install --save express
+// 2. Require the express module:                                       var express = require('express);
+// 3. Invoke express to create an app which can ask to listen:          var app = express();
+// 4. app.listen() tells the server to listen for requests on a port:   app.listen(3000, function() {
+//                 The second parameter is a callback function              console.log("I'm listening!");
+//                 which will run as soon as the server is listening    }); 
+
+
+
+/* TOP-LEVEL MIDDLEWARE */
+// app.use: an Express method which runs the passed in function on every request that comes in your server
+// bodyParser.json(); will parse the body of the request and make it easily accessible as req.body to the next functions
+// req.body: the parsed copy of the request body - contains the data sent by the client
+    app.use( function(req, res, next) {
+        next();
+    })
+
+    app.get('/api/users', function(reg, red, next) {
+        res.send(users);
+    })
+
+/* Body-Parser */
+// npm install --save body-parser
+    var bodyParser = require('body-parser');
+
+    app.use(bodyParser.json()) // puts body on req.body so that our other endpoints can call req.body inside of our app to get the body out
+
+    app.post('api/messages', function(req, res, next) {
+        req.body
+    })
+
+
 
