@@ -17,3 +17,9 @@ app.get('/api/species', function(req, res, next) {
     req.query.group
 });
 //Express will put all the queries from the client request onto a query object on the req object.
+
+/* REQUEST - LEVEL MIDDLEWARE */
+// Will be run on every request made to this endpoint; should have a next() to allow next function to run
+app.delete('/api/everything', isAdmin, function(req, res, next){
+
+})
